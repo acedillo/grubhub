@@ -46,16 +46,25 @@ class MainModel @Inject constructor(
      */
     private fun fetchRandomMeme() {
         launch {
-            memeService.getRandomMeme()?.also { meme ->
-                val state = MainState(
-                    meme.imageUrl,
-                    meme.titleOfEpisode
-                )
+            val randomMeme = memeService.getRandomMeme()
 
-                withContext(Dispatchers.Main) { dispatchStates(state) }
+           val state = if (randomMeme == null) {
+                MainState(
+                    "",
+                    ""
+                )
+            } else {
+                MainState(
+                    randomMeme.imageUrl,
+                    randomMeme.titleOfEpisode
+                )
             }
+
+            withContext(Dispatchers.Main) { dispatchStates(state) }
+
         }
     }
+
 
     /**
      * A user has published their intent to favorite the current meme. We know exactly what that is

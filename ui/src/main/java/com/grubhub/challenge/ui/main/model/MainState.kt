@@ -2,6 +2,8 @@ package com.grubhub.challenge.ui.main.model
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.grubhub.challenge.ui.favorites.model.FavoritesState
+import com.grubhub.challenge.ui.favorites.view.FavoritesAdapter
 import com.grubhub.challenge.ui.main.view.MainActivity
 import com.grubhub.challenge.ui.main.view.RecentFavoritesAdapter
 import com.grubhub.mvi.model.MviState

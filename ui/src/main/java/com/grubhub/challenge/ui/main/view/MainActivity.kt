@@ -2,6 +2,8 @@ package com.grubhub.challenge.ui.main.view
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.View.GONE
+import android.view.View.VISIBLE
 import com.bumptech.glide.Glide
 import com.grubhub.challenge.ui.databinding.ActivityMainBinding
 import com.grubhub.challenge.ui.main.intent.MainIntents
@@ -31,6 +33,12 @@ class MainActivity : MviActivity<MainState, MainIntents>() {
      * This is called by the MVI framework when a new state has been prepared by the view model.
      */
     override fun render(state: MainState) {
+        if(state.episode.isBlank() && state.imageUrl.isBlank()){
+            binding.error.visibility = VISIBLE
+            return
+        }
+
+        binding.error.visibility = GONE
         binding.episodeTitle.text = state.episode
         binding.favIcon.isSelected = state.isFavorite
         Glide.with(binding.memeImage)

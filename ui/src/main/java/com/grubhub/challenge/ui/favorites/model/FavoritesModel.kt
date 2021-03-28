@@ -3,6 +3,7 @@ package com.grubhub.challenge.ui.favorites.model
 import com.grubhub.challenge.service.domain.IFavoriteService
 import com.grubhub.challenge.ui.databinding.ActivityFavoritesBinding
 import com.grubhub.challenge.ui.favorites.intent.FavoritesIntents
+import com.grubhub.challenge.ui.main.model.RecentFavoritesState
 import com.grubhub.mvi.model.BaseModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -47,6 +48,11 @@ class FavoritesModel @Inject constructor(
     private fun bind(intent: FavoritesIntents.BindingIntent) {
         binding = intent.binding
     }
+
+//    override fun bindData(state: FavoritesState) {
+//        binding?.state = state
+//    }
+
 
     override val coroutineContext: CoroutineContext
         get() = Dispatchers.IO

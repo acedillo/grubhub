@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Grubhub Code Challenge</string>
+    <string name="error">We can\'t retrieve memes, are you sure you\'re connected to the internet?</string>
 </resources>
