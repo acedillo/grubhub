@@ -1,0 +1,9 @@
+include ':persistence'
+include ':mvi'
+include ':common'
+include ':network'
+include ':service'
+include ':ui'
+include ':data'
+include ':app'
+rootProject.name = "CodeChallenge"

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- https://frinkiac.com/meme/S13E19/312979.jpg?b64lines=IE9oLCB3ZWxsLCB0aGVuLi4uIHlvdSBhcmUKIGRlZmluaXRlbHkgbm90IGdvaW5nIHRvCiBsaWtlIG15IHN0ZWFtLXBvd2VyZWQKIHN1cGVyIHNwaWRlciE= -->
+    <string name="meme_img_format">https://frinkiac.com/meme/%1$s/%2$d.jpg?b64lines=%3$s</string>
+</resources>
