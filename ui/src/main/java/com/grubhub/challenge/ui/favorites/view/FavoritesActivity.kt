@@ -8,6 +8,7 @@ import com.grubhub.challenge.ui.databinding.ActivityFavoritesBinding
 import com.grubhub.challenge.ui.favorites.intent.FavoritesIntents
 import com.grubhub.challenge.ui.favorites.model.FavoritesModel
 import com.grubhub.challenge.ui.favorites.model.FavoritesState
+import com.grubhub.challenge.ui.main.intent.RecentFavoriteIntents
 import com.grubhub.mvi.view.MviActivity
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -28,6 +29,7 @@ class FavoritesActivity : MviActivity<FavoritesState, FavoritesIntents>() {
             adapter = FavoritesAdapter()
         }
         setContentView(binding.root)
+        viewModel.publish(FavoritesIntents.BindingIntent(binding))
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

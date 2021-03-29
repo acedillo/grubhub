@@ -13,8 +13,8 @@ data class FavoritesState(
 ) : MviState {
 
     object Adapters {
-//        @JvmStatic
-//        @BindingAdapter("set_favorites")
+        @JvmStatic
+        @BindingAdapter("set_favorites")
         fun bindRecyclerview(view: RecyclerView, state: FavoritesState?) {
             state?.also {
                 (view.adapter as FavoritesAdapter).update(it.memes)

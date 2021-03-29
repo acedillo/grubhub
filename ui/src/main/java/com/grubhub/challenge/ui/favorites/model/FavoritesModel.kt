@@ -1,5 +1,6 @@
 package com.grubhub.challenge.ui.favorites.model
 
+import android.database.ContentObserver
 import com.grubhub.challenge.service.domain.IFavoriteService
 import com.grubhub.challenge.ui.databinding.ActivityFavoritesBinding
 import com.grubhub.challenge.ui.favorites.intent.FavoritesIntents
@@ -17,6 +18,7 @@ class FavoritesModel @Inject constructor(
 ) : BaseModel<FavoritesIntents, FavoritesState>(), CoroutineScope {
 
     private var binding: ActivityFavoritesBinding? = null
+    private lateinit var observer: ContentObserver
 
     /**
      * This is the sole way MviViews should interact with their view models. The publish call is the
@@ -39,6 +41,11 @@ class FavoritesModel @Inject constructor(
             val state = FavoritesState(memes)
             withContext(Dispatchers.Main) { dispatchStates(state) }
         }
+
+        observer = favoritesService.observeFavorites { favorites ->
+            val state = FavoritesState(favorites)
+            dispatchStates(state)
+        }
     }
 
     /**
@@ -49,9 +56,9 @@ class FavoritesModel @Inject constructor(
         binding = intent.binding
     }
 
-//    override fun bindData(state: FavoritesState) {
-//        binding?.state = state
-//    }
+    override fun bindData(state: FavoritesState) {
+        binding?.state = state
+    }
 
 
     override val coroutineContext: CoroutineContext
