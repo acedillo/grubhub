@@ -45,6 +45,8 @@ dependencies {
     implementation project(':data')
     implementation project(':service')
 
+    implementation 'com.facebook.android:facebook-share:7.1.0'
+
     // Dependency injection
     implementation "com.google.dagger:hilt-android:$hilt_version"
     kapt "com.google.dagger:hilt-android-compiler:$hilt_version"
